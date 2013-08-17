@@ -1,0 +1,5 @@
+td.topic {padding:4px 5px;}
+tr.grey td, tr.white td{padding:4px 5px;}
+tr.grey {background:#dedede;}
+tr.white {background:#fff;}
+td.brdl {border-left:1px solid;padding-left:5px;}

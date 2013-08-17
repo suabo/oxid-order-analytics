@@ -1,0 +1,10 @@
+Admin Bestell Statistik
+=======================
+
+1. copy_this in das Shop root Verzeichnis kopieren.
+
+2. Modul im Shop Backend aktivieren.
+
+3. Shopcache (tmp/) leeren.
+
+Fertig
