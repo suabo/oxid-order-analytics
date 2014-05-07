@@ -15,7 +15,7 @@ $aModule = array(
       'en' => 'Show an advanced statistic in the order overview admin panel.'
     ),
     'thumbnail'   => '../logo.png',
-    'version'     => '1.0.0',
+    'version'     => '1.0.1',
     'author'      => 'suabo',
     'url'         => 'http://www.suabo.de',
     'email'       => 'info@suabo.de',
