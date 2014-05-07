@@ -6,6 +6,13 @@ class suabostatistik extends suabostatistik_parent{
         return parent::render();
     } 
     
+    public function days_in_month($month, $year) 
+    { 
+        // calculate number of days in a month 
+        return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31); 
+    } 
+
+    
     protected function _mgGetStats() {
         // Tag
         $sTimestampFrom = date("Y-m-d")." 00:00:00";
@@ -18,8 +25,9 @@ class suabostatistik extends suabostatistik_parent{
         $this->_aViewData['mgstat_month'] = $this->_mgGetStatsFrom($sTimestampFrom, $sTimestampTill);
 
         // letzten Monat
+        $lmonth = (intval(date("m"))-1);
         $sTimestampFrom = date("Y-").(intval(date("m"))-1)."-1 00:00:00";
-        $sTimestampTill = date("Y-").(intval(date("m"))-1)."-31 23:59:59";
+        $sTimestampTill = date("Y-").(intval(date("m"))-1)."-".$this->days_in_month($lmonth,date("Y"))." 23:59:59";
         $this->_aViewData['mgstat_lmonth'] = $this->_mgGetStatsFrom($sTimestampFrom, $sTimestampTill);
         
         // Benutzereingabe
