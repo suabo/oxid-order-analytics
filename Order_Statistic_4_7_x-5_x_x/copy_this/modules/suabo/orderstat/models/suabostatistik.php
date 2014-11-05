@@ -31,7 +31,7 @@ class suabostatistik extends suabostatistik_parent{
         $this->_aViewData['mgstat_lmonth'] = $this->_mgGetStatsFrom($sTimestampFrom, $sTimestampTill);
         
         // Benutzereingabe
-        $aUserStat = oxConfig::getParameter("mgstat");
+        $aUserStat = oxRegistry::getConfig()->getRequestParameter("mgstat");
         if(!isset($aUserStat) || empty($aUserStat)) {
             $sUserFrom = date("Y-").(intval(date("m")) - 1).date("-d");
             $sUserTill = date("Y-m-d");
