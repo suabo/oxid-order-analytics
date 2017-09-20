@@ -72,7 +72,7 @@ class suabostatistik extends suabostatistik_parent{
         
         // Gesamtwert
         $fGesamtBrutto = number_format($aArticleSum["fTotalBrutto"] + $aArticleSum["fShipping"], 2);
-        $fGesamtNetto  = number_format($aArticleSum["fTotalNetto"] + ($aArticleSum["fShipping"] * 0.81), 2);
+        $fGesamtNetto  = number_format($aArticleSum["fTotalNetto"] + ($aArticleSum["fShipping"] / 1.19), 2);
         $aGesamt = array($fGesamtBrutto, $fGesamtNetto);
         
         return array("iOrderCnt"    => $iOrderCnt,
