@@ -1,0 +1,27 @@
+table.orderstat-table th,
+table.orderstat-table td {
+    padding: 5px 10px;
+}
+td.total {
+    font-weight: 600;
+}
+tr.grey {
+    background:#eee;
+}
+tr.white {
+    background:#fff;
+}
+th.brdl,
+td.brdl {
+    border-left:1px solid #ccc;
+    padding-left:5px;
+}
+
+tr.total td {
+    border-top: 1px solid #ccc;
+    font-weight: 600;
+}
+
+.text-right {
+    text-align: right;
+}

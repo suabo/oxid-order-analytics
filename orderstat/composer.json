@@ -1,0 +1,37 @@
+{
+    "name": "suabo/orderstat",
+    "description": "Show an advanced statistic in the order overview admin panel of OXID eShop.",
+    "type": "oxideshop-module",
+    "keywords": [
+        "oxid",
+        "modules",
+        "eShop"
+    ],
+    "homepage": "https://www.suabo.de",
+    "version": "2.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+            "name": "Marcel Grolms",
+            "email": "info@suabo.de"
+        }
+    ],
+    "extra": {
+        "oxideshop": {
+            "blacklist-filter": [
+                "documentation/**/*.*"
+            ],
+            "target-directory": "suabo/orderstat"
+        }
+    },
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Suabo\\OrderStatistics\\": "../../../source/modules/suabo/orderstat"
+        }
+    }
+}

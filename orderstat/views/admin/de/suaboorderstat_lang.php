@@ -6,6 +6,8 @@ $sLangName  = "Deutsch";
 // -------------------------------
 $aLang = array(
     'charset'                    => 'UTF-8',
+    'SHOP_MODULE_GROUP_SUABOORDERSTAT_MAIN' => 'Grundeinstellungen',
+    'SHOP_MODULE_sSuaboOrderStatStart'      => 'Startjahr für Benutzerdefinierte Anzeige',
     'SUABOORDERSTAT_TODAY'       => 'Heute',
     'SUABOORDERSTAT_THISMONTH'   => 'dieser Monat',
     'SUABOORDERSTAT_LASTMONTH'   => 'letzter Monat',
