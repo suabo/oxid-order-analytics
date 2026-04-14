@@ -103,7 +103,7 @@ class OrderOverview extends OrderOverview_parent{
         
         // Gesamtwert
         $fGesamtBrutto = $aArticleSum["fTotalBrutto"] + $aArticleSum["fShipping"];
-        $fGesamtNetto  = $aArticleSum["fTotalNetto"] + ($aArticleSum["fShipping"] * 0.81);
+        $fGesamtNetto  = $aArticleSum["fTotalNetto"] + ($aArticleSum["fShipping"] / 1.19);
         $aGesamt = array($fGesamtBrutto, $fGesamtNetto);
         
         return array("iOrderCnt"    => $iOrderCnt,
