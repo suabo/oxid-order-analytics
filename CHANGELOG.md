@@ -6,12 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-# [2.0.0] - 2026-04-14
+# [3.0.0] - 2026-04-14
 ### Changed
 - added support for OXID eShop V7.x
 
 ### Removed
-- dropped support for OXID eShop V6.x (use V1.0.1)
+- dropped support for OXID eShop V6.x (use V2.0.0)
+
+# [2.0.1] - 2026-04-14
+### Fixed
+- fixed net value calculation of delivery cost
+
+# [2.0.0] - 2021-02-25
+### Changed
+- added support for OXID eShop V6.x
+
+### Removed
+- dropped support for OXID eShop V4.x (use V1.0.1)
 
 # [1.0.1] - 2014-05-07
 ### Added

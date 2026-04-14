@@ -4,15 +4,22 @@ namespace Suabo\OrderStatistics\Model;
 use Doctrine\DBAL\Driver\Exception;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\EshopCommunity\Core\Di\ContainerFacade;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
+use OxidEsales\EshopCommunity\Internal\Framework\Module\Facade\ModuleSettingServiceInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class SuaboOrderStatistik extends SuaboOrderStatistik_parent{
 
-	/**
-	 * Render template
-	 * @throws Exception
+    /**
+     * Render template
+     * @return mixed
+     * @throws ContainerExceptionInterface
+     * @throws Exception
+     * @throws NotFoundExceptionInterface
      * @throws \Doctrine\DBAL\Exception
-	 */
+     */
 	public function render() {
 		$this->_aViewData['startDate'] = $this->getOrderStatisticsStartDate();
 		$this->_aViewData['endDate'] = $this->getOrderStatisticsEndDate();
@@ -193,20 +200,26 @@ class SuaboOrderStatistik extends SuaboOrderStatistik_parent{
 		];
     }
 
-	/**
-	 * Get order statistics start date from module config
-	 * @return int
-	 */
-	protected function getOrderStatisticsStartDate() {
-		$iYear = Registry::getConfig()->getConfigParam('sSuaboOrderStatStart');
-		return $iYear;
+    /**
+     * Get order statistics start date from module config
+     * @return int
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+	protected function getOrderStatisticsStartDate(): int
+    {
+        $moduleSettingService = ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(ModuleSettingServiceInterface::class);
+        return $moduleSettingService->getInteger('sSuaboOrderStatStart', 'suaboorderstatistics');
 	}
 
 	/**
 	 * Get order statistics end date
 	 * @return int
 	 */
-	protected function getOrderStatisticsEndDate() {
+	protected function getOrderStatisticsEndDate(): int
+    {
 		return intval(date('Y')) + 1;
 	}
 }

@@ -15,7 +15,7 @@ $aModule = array(
       'en' => 'Show an advanced statistic in the order overview admin panel.'
     ),
     'thumbnail'   => 'logo.png',
-    'version'     => '2.0.0',
+    'version'     => '3.0.0',
     'author'      => 'Marcel Grolms',
     'url'         => 'https://www.suabo.de',
     'email'       => 'info@suabo.de',
@@ -26,7 +26,8 @@ $aModule = array(
 		[
 			'group' => 'SUABO_ORDERSTATISTICS_MAIN',
 			'name' => 'sSuaboOrderStatStart',
-			'type' => 'str',  'value' => '2000'
+			'type' => 'num',
+            'value' => 2000
 		]
 	)
 );
