@@ -21,7 +21,3 @@ $aLang = array(
     'SUABOORDERSTAT_TOTALBRUTTO' => 'Gesamt Brutton',
     'SUABOORDERSTAT_TOTALNETTO'  => 'Gesamt Netto',
 );
-
-/*
-[{ oxmultilang ident="GENERAL_YOUWANTTODELETE" }]
-*/

@@ -1,13 +1,11 @@
-Admin Bestell Statistik
+Order Analytics for OXID eShop
 =======================
 
-1. Modulverzeichnis in [SHOP_ROOT]/extensions/suabo/orderstat kopieren.
+1. Install via composer:
+    `composer require suabo/orderanalytics`
 
-2. Installation via composer
+2. Activate the module in shop backend or via command line:
+    `vendor/bin/oe-console oe:module:activate suaboorderstat`
 
-    composer config repositories.suabo/orderstat path extensions/suabo/orderstat
-    composer require suabo/orderstat
-
-3. Modul im Shop Backend aktivieren und das Startjahr für die von bis Zeitanzeige festlegen. (Voreinstellung: 2000)
-
-4. Shopcache (tmp/) leeren.
+3. Clear the shop cache:
+    `vendor/bin/oe-console oe:cache:clear`
