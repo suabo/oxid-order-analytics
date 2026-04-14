@@ -1,0 +1,107 @@
+{% extends 'order_overview.html.twig' %}
+{% block admin_order_overview_general %}
+    {% if not edit %}
+    <tr class="order-statistics">
+        <th></th>
+        <th>{{ translate({ ident: "SUABOORDERSTAT_TODAY" }) }}</th>
+        <th>{{ translate({ ident: "SUABOORDERSTAT_THISMONTH" }) }}</th>
+        <th>{{ translate({ ident: "SUABOORDERSTAT_LASTMONTH" }) }}</th>
+        <th>
+            <form name="mgstatuserdef" id="mgstatuserdef" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                {{ oViewConf.getHiddenSid()|raw }}
+                <input type="hidden" name="oxid" value="{{ oxid }}">
+                <input type="hidden" name="cl" value="order_overview">
+
+                {{ translate({ ident: "SUABOORDERSTAT_FROM" }) }}
+                <select name="mgstat[from][day]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 1..31 %}
+                        <option{% if mgstat_useredit_from.day == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="mgstat[from][month]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 1..13 %}
+                        <option{% if mgstat_useredit_from.month == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <select name="mgstat[from][year]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 2007..2029 %}
+                    <option{%if mgstat_useredit_from.year == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                {{ translate({ ident: "SUABOORDERSTAT_TILL" }) }}
+                {# Tag-Auswahl #}
+                <select name="mgstat[till][day]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 1..31 %}
+                        <option{% if mgstat_useredit_till.day == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+
+                {# Monats-Auswahl #}
+                <select name="mgstat[till][month]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 1..12 %}
+                        <option{% if mgstat_useredit_till.month == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+
+                {# Jahres-Auswahl #}
+                <select name="mgstat[till][year]" onchange="document.mgstatuserdef.submit();">
+                    {% for i in 2007..2029 %}
+                        <option{% if mgstat_useredit_till.year == i %} selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </th>
+        <th>{{ translate({ ident: "SUABOORDERSTAT_TOTAL" }) }}</th>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_ORDERCNT" }) }}:</th>
+        <td>{{ mgstat_day.iOrderCnt }}</td>
+        <td>{{ mgstat_month.iOrderCnt }}</td>
+        <td>{{ mgstat_lmonth.iOrderCnt }}</td>
+        <td>{{ mgstat_userdef.iOrderCnt }}</td>
+        <td><strong>{{ mgstat_total.iOrderCnt }}</strong></td>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_ARTNETTO" }) }}:</th>
+        <td>{{ mgstat_day.aArticleSum.totalNetto }} {{ currency.name }}</td>
+        <td>{{ mgstat_month.aArticleSum.totalNetto }} {{ currency.name }}</td>
+        <td>{{ mgstat_lmonth.aArticleSum.totalNetto }} {{ currency.name }}</td>
+        <td>{{ mgstat_userdef.aArticleSum.totalNetto }} {{ currency.name }}</td>
+        <td>{{ mgstat_total.aArticleSum.totalNetto }} {{ currency.name }}</td>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_ARTBRUTTO" }) }}:</th>
+        <td>{{ mgstat_day.aArticleSum.totalBrutto }} {{ currency.name }}</td>
+        <td>{{ mgstat_month.aArticleSum.totalBrutto }} {{ currency.name }}</td>
+        <td>{{ mgstat_lmonth.aArticleSum.totalBrutto }} {{ currency.name }}</td>
+        <td>{{ mgstat_userdef.aArticleSum.totalBrutto }} {{ currency.name }}</td>
+        <td>{{ mgstat_total.aArticleSum.totalBrutto }} {{ currency.name }}</td>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_DELCOST" }) }}:</th>
+        <td>{{ mgstat_day.aArticleSum.shipping }} {{ currency.name }}</td>
+        <td>{{ mgstat_month.aArticleSum.shipping }} {{ currency.name }}</td>
+        <td>{{ mgstat_lmonth.aArticleSum.shipping }} {{ currency.name }}</td>
+        <td>{{ mgstat_userdef.aArticleSum.shipping }} {{ currency.name }}</td>
+        <td>{{ mgstat_total.aArticleSum.shipping }} {{ currency.name }}</td>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_TOTALNETTO" }) }}:</th>
+        <td>{{ mgstat_day.aGesamt.1 }} {{ currency.name }}</td>
+        <td>{{ mgstat_month.aGesamt.1 }} {{ currency.name }}</td>
+        <td>{{ mgstat_lmonth.aGesamt.1 }} {{ currency.name }}</td>
+        <td>{{ mgstat_userdef.aGesamt.1 }} {{ currency.name }}</td>
+        <td>{{ mgstat_total.aGesamt.1 }} {{ currency.name }}</td>
+    </tr>
+    <tr class="order-statistics">
+        <th>{{ translate({ ident: "SUABOORDERSTAT_TOTALBRUTTO" }) }}:</th>
+        <td>{{ mgstat_day.aGesamt.0 }} {{ currency.name }}</td>
+        <td>{{ mgstat_month.aGesamt.0 }} {{ currency.name }}</td>
+        <td>{{ mgstat_lmonth.aGesamt.0 }} {{ currency.name }}</td>
+        <td>{{ mgstat_userdef.aGesamt.0 }} {{ currency.name }}</td>
+        <td>{{ mgstat_total.aGesamt.0 }} {{ currency.name }}</td>
+    </tr>
+    {% endif %}
+{% endblock %}

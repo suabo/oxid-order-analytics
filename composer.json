@@ -1,0 +1,32 @@
+{
+    "name": "suabo/orderanalytics",
+    "description": "OXID eShop extension to show order analytics.",
+    "type": "oxideshop-module",
+    "keywords": [
+        "oxid",
+        "modules",
+        "eShop",
+        "analytics",
+        "order",
+        "statistics"
+    ],
+    "homepage": "https://www.suabo.de",
+    "version": "2.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "authors": [
+        {
+            "name": "Marcel Grolms",
+            "email": "support@suabo.de"
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Suabo\\OrderAnalytics\\": "./src"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+tr.order-statistics th {
+    padding:4px 15px;
+    text-align: right;
+}
+tr.order-statistics th:first-child {
+    border: 0;
+}
+tr.order-statistics td {
+    text-align: right;
+    padding:4px 15px;
+    border-left:1px solid #dedede;
+}
+tr.order-statistics td:first-child {
+    border: 0;
+}
+tr.order-statistics {
+    background-color: #fff;
+}
+tr.order-statistics:nth-child(even) {
+    background-color: #f0f0f0;
+}
+tr.order-statistics:hover {
+    background-color: #dedede;
+}
